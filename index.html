@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <title>css3-demo</title>
+</head>
+
+<body>
+    <div class="app">
+        <div class="container">
+            <div data-order="1" class="item one" onClick="clickChart('1')" style="transform: translate(-33%,-33.5%) scale(0.33)">
+                1
+            </div>
+            <div data-order="2" class="item two" onClick="clickChart('2')" style="transform: translate(-33%,0.5%) scale(0.33)">
+                2
+            </div>
+            <div data-order="3" class="item three" onClick="clickChart('3')" style="transform: translate(-33%,34.5%) scale(0.33)">
+                3
+            </div>
+            <div data-order="4" class="item four active" onClick="clickChart('4')" style="transform: translate(41.7%, 0) scale(1)">
+                4
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    var items = document.querySelectorAll('.container .item');
+    function clickChart(clickIndex) {
+      let activeItem = document.querySelector('.container .active')
+      let activeIndex = activeItem.dataset.order
+      let clickItem = items[clickIndex - 1]
+      if (activeIndex === clickIndex) {
+        return
+      }
+      activeItem.classList.remove('active')
+      clickItem.classList.add('active')
+      setStyle(clickItem, activeItem)
+    }
+    function setStyle(el1, el2) {
+      let transform1 = el1.style.transform
+      let transform2 = el2.style.transform
+      el1.style.transform = transform2
+      el2.style.transform = transform1
+    }
+</script>
+</html>
