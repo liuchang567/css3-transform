@@ -33,10 +33,10 @@ ssh -T git@你刚刚配的gitlab的HostName
 // 出现 welcome xxx ... 则成功
 ```
 - 删除缓存的秘钥（这一步非必须，比如您是刚刚安装git的）  
-- ```javascript
- ssh-add -D
+```javascript
+ssh-add -D
 如果显示如下信息
 eval $(ssh-agent)
 然后重新执行第6步，如果没有报错的话，那么可以执行下面一条命令，让ssh-agent知道你有这么个key
 ssh-add ~/.ssh/github_id-rsa
-- ```
+ ```
